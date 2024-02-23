@@ -16,7 +16,7 @@ const PRIVATE_APP_ACCESS = process.env.token;
 
 // TODO: ROUTE 1 - Create a new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
 app.get('/plants', async(req, res) => {
-
+////http://localhost:3000/plants
     const plants = 'https://api.hubspot.com/crm/v3/objects/2-24060158?properties=plant_name,plant_color,plant_type'
     const headers= {
 
