@@ -69,7 +69,18 @@ app.post('/update-cobj', async(req, res) => {
             "plant_color": req.body.newVal
         }
     }
-
+    const plantName=req.query.plantName;
+    const updatePlantName=`https://api.hubspot.com/crm/v3/objects/2-24060158/${plantName}?idProperty=plant_name&properties=plant_color`;
+    const headers= {
+        Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+        'Content-Type': 'application/json'
+    };    
+    try {
+        await axios.patch(updatePlantName, update, {headers});
+        res.redirect('back');
+    } catch (error) {
+        console.error(error);
+    }
 })
 
 app.listen(3000, () => console.log('Listening on http://localhost:3000'));
